@@ -1,0 +1,315 @@
+
+body{
+    margin: 0;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+}
+
+.flex-box-container{
+    display: flex;
+    flex-direction: column; /* Makes children stack vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: flex-start; /* Centers items vertically */
+    scroll-behavior: auto;
+    scroll-behavior: smooth;
+
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/*this is where the main div begins*/
+/* Grid Layout */
+.grid-box {
+    display: flex;
+    flex-direction:column ;
+    width: 100%;
+    max-width: 100vw;
+    background: white;
+    overflow: hidden;
+    align-items: center; /* Centers items horizontally */
+    justify-content: flex-start; /* Centers items vertically */
+}
+
+/* Header */
+.heading-font {
+    display:flex;
+    font-size: 200%;
+    width: 100vw;
+    height: 10%;
+    text-align: center;
+    background: #333;
+    color: white;
+    
+   
+}
+/* Carousel Wrapper */
+#slideshow {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Slideshow Container */
+.slide-wrapper {
+    display: flex;
+    width: 500%;
+    height:100vh;
+    animation: slide 10s infinite;
+}
+
+/* Individual Slides */
+.slide {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #444;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+
+.slide-number {
+    color: #000;
+    text-align: center;
+    font-size: 10em;
+  }
+
+/* Slide Animation */
+@keyframes slide {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); }
+}
+
+/* Footer */
+.desc-font {
+    text-align: center;
+    background: #222;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+
+  
+  .slide:nth-child(1) {
+    background: #D93B65;
+  }
+  
+  .slide:nth-child(2) {
+    background: #037E8C;
+  }
+  
+  .slide:nth-child(3) {
+    background: #36BF66;
+  }
+  
+  .slide:nth-child(4) {
+    background: #D9D055;
+  }
+  
+  .slide-number {
+    color: #000;
+    text-align: center;
+    font-size: 10em;
+  }
+  @keyframes slide {
+    0%, 20% { transform: translateX(0); }
+    30%, 50% { transform: translateX(-100%); }
+    60%, 70% { transform: translateX(-200%); }
+    80%, 90% { transform: translateX(-300%); }
+} 
+  @-webkit-keyframes slide {
+    0%, 20% { transform: translateX(0); }
+    30%, 50% { transform: translateX(-100%); }
+    60%, 70% { transform: translateX(-200%); }
+    80%, 90% { transform: translateX(-300%); }
+  }
+  
+/*end of carousel css*/
+label {
+	background: #444;
+	color: #fff;
+	transition: transform 400ms ease-out;
+	display: inline-block;
+  min-height: 100%;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	line-height: 100vh;
+}
+
+form {
+    position: relative; /* Ensure it stays in normal document flow */
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+input {
+	position: absolute;
+}
+
+.keys {
+	position: absolute;
+	z-index: 10;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1rem;
+	color: #fff;
+	text-align: center;
+	transition: all 300ms linear;
+	opacity: 0;
+}
+
+input:focus ~ .keys {
+	opacity: 0.8;
+}
+
+input:nth-of-type(1):checked ~ label:nth-of-type(1), 
+input:nth-of-type(2):checked ~ label:nth-of-type(2),
+input:nth-of-type(3):checked ~ label:nth-of-type(3),
+input:nth-of-type(4):checked ~ label:nth-of-type(4){
+   z-index: 0;
+}
+
+input:nth-of-type(1):checked ~ label {
+	transform: translate3d(0, 0, 0);
+}
+
+input:nth-of-type(2):checked ~ label {
+	transform: translate3d(-100%, 0, 0);
+}
+
+input:nth-of-type(3):checked ~ label {
+	transform: translate3d(-200%, 0, 0);
+}
+
+input:nth-of-type(4):checked ~ label {
+	transform: translate3d(-300%, 0, 0);
+}
+
+label {
+    display: inline-block;
+    width: auto; /* Prevent it from taking full screen */
+    height: auto;
+    min-height: 50px; /* Give it enough height */
+    padding: 10px;
+    line-height: normal;
+    text-align: center;
+}
+
+
+label[for="diamonds"],
+label[for="hearts"] {
+	background: #cc0000;
+}
+
+label:before,
+label:after {
+	color: white;
+	display: block;
+	background: rgba(255,255,255,0.2);
+	position: absolute;
+	padding: 1rem;
+	font-size: 3rem;
+	height: 10rem;
+	vertical-align: middle;
+	line-height: 10rem;
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+	cursor: pointer;
+}
+
+label:before {
+	content: "\276D";
+	right: 100%;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+label:after {
+	content: "\276C";
+	left: 100%;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+
+
+/*this is where the main div ends*/
+.slider{
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+}
+.slider .list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .item{
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+}
+.slider .list .item img{
+    width: 100%;
+}
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }to{
+        left: calc(var(--width) * -1);
+    }
+}
+.slider:hover .item{
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+.slider .item:hover{
+    filter: grayscale(0);
+}
+.slider[reverse="true"] .item{
+    animation: reversePlay 10s linear infinite;
+}
+@keyframes reversePlay{
+    from{
+        left: calc(var(--width) * -1);
+    }to{
+        left: 100%;
+    }
+}
